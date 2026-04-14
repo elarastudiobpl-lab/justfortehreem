@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Tehreem 💗</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at top, #1a001a, #000);
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* container */
+.container {
+    margin-top: 60px;
+}
+
+/* profile image */
+img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid #ff4da6;
+    box-shadow: 0 0 25px #ff4da6;
+    object-fit: cover;
+}
+
+/* heading */
+h1 {
+    font-size: 42px;
+    color: #ff4da6;
+    margin-top: 15px;
+}
+
+/* typing text */
+#typing {
+    font-size: 22px;
+    margin-top: 20px;
+    min-height: 60px;
+}
+
+/* button */
+.btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    background: #ff4da6;
+    color: white;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* secret */
+#secret {
+    display: none;
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ff99cc;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff4da6; }
+    to { text-shadow: 0 0 30px #ff4da6; }
+}
+
+/* floating hearts */
+.heart {
+    position: absolute;
+    color: red;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* name reveal */
+#name {
+    opacity: 0;
+    font-size: 28px;
+    margin-top: 15px;
+    transition: 2s;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Replace image -->
+    <img src="https://drive.google.com/file/d/19HT-v_uOM0EidCuujImVMJn4X46GEQNl/view?usp=drivesdk">
+
+    <h1>Happy Birthday 🎂</h1>
+
+    <div id="name">Tehreem ❤️</div>
+
+    <div id="typing"></div>
+
+    <button class="btn" onclick="showSecret()">Click Me 💌</button>
+
+    <div id="secret">Behn ki lawdii 🫂😘 </div>
+
+</div>
+
+<!-- MUSIC -->
+<iframe width="0" height="0"
+src="https://youtu.be/nAw2ooeubSQ?si=dJ9yXyOLDAWoMO34">
+</iframe>
+
+<script>
+// typing effect
+const text = [
+    "Aaj ka din sirf tumhare liye hai 💫",
+    "Tum meri life ki sabse khoobsurat feeling ho 💖",
+    "Aur shayad... main tumhe thoda zyada hi pasand karta hoon ❤️"
+];
+
+let i = 0, j = 0;
+function type() {
+    if (i < text.length) {
+        if (j < text[i].length) {
+            document.getElementById("typing").innerHTML += text[i].charAt(j);
+            j++;
+            setTimeout(type, 50);
+        } else {
+            document.getElementById("typing").innerHTML += "<br>";
+            i++; j = 0;
+            setTimeout(type, 700);
+        }
+    }
+}
+type();
+
+// reveal name
+setTimeout(() => {
+    document.getElementById("name").style.opacity = 1;
+}, 1500);
+
+// button action
+function showSecret() {
+    document.getElementById("secret").style.display = "block";
+}
+
+// floating hearts
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "My.tee💗✨️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 25 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 200);
+</script>
+
+</body>
+</html>
